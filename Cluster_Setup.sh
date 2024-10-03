@@ -8,5 +8,12 @@ else
   echo "The hostname does not contain 'login'."
 fi
 #git config --global user.name "rauertc_c"
-git clone https://github.com/CarlosRauert/Genomics_Scripts $HOME/work/Scripts_Git_Repos/Genomics_Scripts
-git clone https://github.com/CarlosRauert/Spatial_Scripts $HOME/work/Scripts_Git_Repos/Spatial_Scripts
+#git clone https://github.com/CarlosRauert/Genomics_Scripts $HOME/work/Scripts_Git_Repos/Genomics_Scripts
+#git clone https://github.com/CarlosRauert/Spatial_Scripts $HOME/work/Scripts_Git_Repos/Spatial_Scripts
+
+cd $HOME/work/Scripts_Git_Repos/Genomics_Scripts
+git fetch origin
+
+cd $HOME/work/Scripts_Git_Repos/Spatial_Scripts
+git fetch origin
+
