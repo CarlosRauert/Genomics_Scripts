@@ -1,5 +1,8 @@
 #!/bin/sh
-tmux new-session -A -s default
+
+tmuxname=$1
+
+tmux new-session -A -s ${tmuxname}
 # Check if $HOSTNAME contains "login"
 if [[ "$HOSTNAME" == *"login"* ]]; then
   # Run the srun command if the condition is met
