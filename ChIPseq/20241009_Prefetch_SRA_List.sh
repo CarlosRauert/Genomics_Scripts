@@ -1,0 +1,1 @@
+prefetch --option-file /data/cephfs-1/scratch/groups/dubois/users/rauertc_c/ChIPseq/SRA/SRR_Acc_List.txt --output-directory /data/cephfs-1/scratch/groups/dubois/users/rauertc_c/ChIPseq/SRA
