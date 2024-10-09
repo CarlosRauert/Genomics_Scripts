@@ -25,21 +25,19 @@ cycle_basis=nx.cycle_basis(H)
 cycle_nodes = set(node for cycle in cycle_basis for node in cycle)
 subgraph = G.subgraph(cycle_nodes)
 
+print("searching for cycles")
 simple_cycles = list(nx.simple_cycles(subgraph))
 
-print("searching for cycles")
-Minimum_Cycle_Basis = list(nx.minimum_cycle_basis(G))
-Cycles= list(nx.simple_cycles(G))
 print("\nElementary Cycles in the Graph:")
-print(len(Cycles))
+print(len(simple_cycles))
 
-if len(Cycles)>0:
+if len(simple_cycles)>0:
     print("found Cycle")
     #Save list to txt file
     #Open a file in write mode
     print("writing file")
     with open("/data/cephfs-1/home/users/rauertc_c/work/genomics/MDM2_Walks_Out/"+CaseID+"/"+CaseID+"_"+CNxt+"_Cycles.txt", "w") as file:
-        for item in Cycles:
+        for item in simple_cycles:
             file.write(f"{item}\n")  # Write each element followed by a newline
 else:
     print("No Cycle found")
