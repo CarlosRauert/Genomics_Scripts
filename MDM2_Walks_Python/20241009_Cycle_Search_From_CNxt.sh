@@ -6,8 +6,8 @@ CNxt=$2
 conda init
 conda activate /data/cephfs-1/home/users/rauertc_c/work/miniforge3/envs/Genomics
 
-# Loop until CNxt reaches or exceeds 8
-while (( $(echo "$CNxt < 8" | bc -l) )); do
+# Loop until CNxt reaches or smaller than 8
+while (( $(echo "$CNxt > 8" | bc -l) )); do
   # Execute the R script
   Rscript /data/cephfs-1/home/users/rauertc_c/work/Scripts_Git_Repos/Genomics_Scripts/MDM2_Walks_Python/20241009_Prepare_Adj_Python.R ${CaseID} ${CNxt}
 
