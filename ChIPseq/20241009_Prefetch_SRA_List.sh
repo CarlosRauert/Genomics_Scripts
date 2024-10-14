@@ -7,6 +7,8 @@ done
 
 cd /data/cephfs-1/scratch/groups/dubois/users/rauertc_c/ChIPseq/FastQ
 
+fasterq-dump /data/cephfs-1/scratch/groups/dubois/users/rauertc_c/ChIPseq/SRA/SRR13853315
+
 for dir in /data/cephfs-1/scratch/groups/dubois/users/rauertc_c/ChIPseq/SRA/*
 do
     echo $dir
@@ -16,6 +18,7 @@ done
 # Loop through all .fastq files in the current directory
 for file in /data/cephfs-1/scratch/groups/dubois/users/rauertc_c/ChIPseq/FastQ/*.fastq
 do
-    # Compress each file with gzip
-    gzip "$file"
+    # Compress each file with pigz
+    echo $file
+    pigz -p 32 "$file"
 done

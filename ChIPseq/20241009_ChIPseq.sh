@@ -11,4 +11,8 @@ export NXF_SINGULARITY_CACHEDIR=/data/cephfs-1/work/projects/dubois-lpwgs/singul
 # test
 nextflow run nf-core/chipseq -profile test --outdir /data/cephfs-1/scratch/groups/dubois/users/rauertc_c/ChIPseq -c /data/cephfs-1/home/users/rauertc_c/work/Scripts_Git_Repos/Genomics_Scripts/ChIPseq/20241014_edit_bih.config
 # run with sample sheet
-nextflow run nf-core/chipseq --genome GRCh37 --input /data/cephfs-1/home/users/rauertc_c/work/Scripts_Git_Repos/Genomics_Scripts/ChIPseq/20241014_ChIPseq_Sample_sheet.csv --outdir /data/cephfs-1/scratch/groups/dubois/users/rauertc_c/ChIPseq/20241014_NF_CS_Out -c /data/cephfs-1/home/users/rauertc_c/work/Scripts_Git_Repos/Genomics_Scripts/ChIPseq/20241014_edit_bih.config
+nextflow run nf-core/chipseq --genome GRCh37 \
+    --input /data/cephfs-1/home/users/rauertc_c/work/Scripts_Git_Repos/Genomics_Scripts/ChIPseq/20241014_ChIPseq_Sample_sheet.csv \
+    --outdir /data/cephfs-1/scratch/groups/dubois/users/rauertc_c/ChIPseq/20241014_NF_CS_Out \
+    -c /data/cephfs-1/home/users/rauertc_c/work/Scripts_Git_Repos/Genomics_Scripts/ChIPseq/20241014_edit_bih.config \
+    --macs_gsize 2700000000
