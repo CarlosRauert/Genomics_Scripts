@@ -6,7 +6,7 @@ tmux new-session -A -s ${tmuxname}
 # Check if $HOSTNAME contains "login"
 if [[ "$HOSTNAME" == *"login"* ]]; then
   # Run the srun command if the condition is met
-  srun --mem=600G --ntasks=32 --pty --time 0-03:00:00 bash -i
+  srun --mem=100G --ntasks=32 --pty bash -i
   srun --x11 --pty bash -i
 else
   echo "The hostname does not contain 'login'."
