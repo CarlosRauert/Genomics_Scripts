@@ -12,3 +12,10 @@ do
     echo $dir
     fasterq-dump $dir
 done
+
+# Loop through all .fastq files in the current directory
+for file in /data/cephfs-1/scratch/groups/dubois/users/rauertc_c/ChIPseq/FastQ/*.fastq
+do
+    # Compress each file with gzip
+    gzip "$file"
+done
