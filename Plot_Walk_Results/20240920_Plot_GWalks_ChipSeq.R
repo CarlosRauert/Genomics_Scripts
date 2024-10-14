@@ -11,6 +11,7 @@ ChipSeq_Nucleus <- gTrack(file1, name= "Adipocyte Nuclei \n raw signal density",
 ChipSeq_Tissue <- gTrack(file2, name=" Adipose Tissue \n Fold enrichment", height=20)
 
 
+
 plotGwalk_ChipSeq <- function(gWalk, Name){
   Gwalk_Obj <- readRDS(gWalk)
   walks_l = Gwalk_Obj[walk.id %in% names(sort(Gwalk_Obj$lengths, decreasing = T)[1:3])]
