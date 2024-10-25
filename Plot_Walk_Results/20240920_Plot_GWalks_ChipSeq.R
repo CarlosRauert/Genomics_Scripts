@@ -4,9 +4,6 @@ library(rtracklayer)
 
 file1 <- "/data/cephfs-1/scratch/groups/dubois/users/rauertc_c/ChIPseq/Adipocyte_Nuclei_GSM916066/Adipocyte.bw"
 file2 <- "/data/cephfs-1/scratch/groups/dubois/users/rauertc_c/ChIPseq/Adipose_Tissue_Encode/ENCFF083HLK.bigWig"
-
-import("/data/cephfs-1/scratch/groups/dubois/users/rauertc_c/ChIPseq/Adipocyte_Nuclei_GSM916066/GSM916066_BI.Adipose_Nuclei.H3K27ac.7.wig.gz", format=)
-
 ChipSeq_Nucleus <- gTrack(file1, name= "Adipocyte Nuclei \n raw signal density", cex.label =0.3, height=20)
 ChipSeq_Tissue <- gTrack(file2, name=" Adipose Tissue \n Fold enrichment", height=20)
 

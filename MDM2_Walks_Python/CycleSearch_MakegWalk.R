@@ -52,7 +52,3 @@ plot(c(gencode, highcopyX$gt, Cycles_gW$gtrack(name = "circular walks")), Cycles
 title(main=paste0("MDM2 circular walks with CN greater than ",CNxt))
 par(cex.lab=0.1)
 dev.off()  
-
-
-
-
