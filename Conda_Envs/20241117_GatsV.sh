@@ -1,0 +1,2 @@
+BiocManager::install(c("BiocGenerics","GenomeInfoDb", "GenomicRanges", "IRanges", "S4Vectors"))
+install.packages(c("caTools", "e1071", "parallel", "data.table", "rlang", "ROCR", "stats4", "stringr", "here", "optparse"))
