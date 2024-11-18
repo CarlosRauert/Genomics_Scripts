@@ -12,17 +12,17 @@ ChipSeq_Nucleus <- gTrack(file1, name= "Adipocyte Nuclei \n raw signal density",
 ChipSeq_Tissue <- gTrack(file2, name=" Adipose Tissue \n Fold enrichment", height=20)
 Lipo863B_REP1 <- gTrack("/data/cephfs-1/home/users/rauertc_c/work/ChipSeq/Lipo863B_mod_REP1.mLb.clN.bigWig",
                         name="Lipo836B", chr.sub=FALSE)
-LP6_REP1 <- gTrack("/data/cephfs-1/home/users/rauertc_c/liposarcoma-wgs/20241014_NF_CS_Out/bwa/merged_library/bigwig/LP6_REP1.mLb.clN.bigWig",
+LP6_REP1 <- gTrack("/data/cephfs-1/home/users/rauertc_c/work/genomics/ChIPseq/LP6_mod_REP1.mLb.clN.bigWig",
                         name="LP6", chr.sub=FALSE)
-Tumor_2 <- gTrack("/data/cephfs-1/home/users/rauertc_c/liposarcoma-wgs/20241014_NF_CS_Out/bwa/merged_library/bigwig/LPS141_REP1.mLb.clN.bigWig",
+LPS141 <- gTrack("/data/cephfs-1/home/users/rauertc_c/work/genomics/ChIPseq/LPS141_mod_REP1.mLb.clN.bigWig",
                         name="LPS141", chr.sub=FALSE)
-SW872_REP1 <- gTrack("/data/cephfs-1/home/users/rauertc_c/liposarcoma-wgs/20241014_NF_CS_Out/bwa/merged_library/bigwig/SW872_REP1.mLb.clN.bigWig",
+SW872_REP1 <- gTrack("/data/cephfs-1/home/users/rauertc_c/work/genomics/ChIPseq/SW872_mod_REP1.mLb.clN.bigWig",
                         name="SW872_REP1", chr.sub=FALSE)        
-SW872_REP2 <- gTrack("/data/cephfs-1/home/users/rauertc_c/liposarcoma-wgs/20241014_NF_CS_Out/bwa/merged_library/bigwig/SW872_REP2.mLb.clN.bigWig",
+SW872_REP2 <- gTrack("/data/cephfs-1/home/users/rauertc_c/work/genomics/ChIPseq/SW872_mod_REP2.mLb.clN.bigWig",
                         name="SW872_REP2", chr.sub=FALSE)
-Tumor_1 <- gTrack("/data/cephfs-1/home/users/rauertc_c/liposarcoma-wgs/20241014_NF_CS_Out/bwa/merged_library/bigwig/Tumor_1_REP1.mLb.clN.bigWig",
+Tumor_1 <- gTrack("/data/cephfs-1/home/users/rauertc_c/work/genomics/ChIPseq/Tumor_1_mod_REP1.mLb.clN.bigWig",
                         name="Tumor 1", chr.sub=FALSE)
-Tumor_2 <- gTrack("/data/cephfs-1/home/users/rauertc_c/liposarcoma-wgs/20241014_NF_CS_Out/bwa/merged_library/bigwig/Tumor_2_REP1.mLb.clN.bigWig",
+Tumor_2 <- gTrack("/data/cephfs-1/home/users/rauertc_c/work/genomics/ChIPseq/Tumor_2_mod_REP1.mLb.clN.bigWig",
                         name="Tumor 2", chr.sub=FALSE)
 
 TissueEncode <- import()
@@ -59,7 +59,7 @@ plotGwalk_ChipSeq <- function(gWalk, Name){
   gencode$legend=FALSE
   pdf(file = paste0('/data/cephfs-1/work/groups/dubois/users/rauertc_c/genomics/MDM2_Walks_Out/',Name,'/20241311_CycleWalks_ChipSeq_Test.pdf'), height=15, width=9)                                                                                       
   #plot(c(gencode, walks_l$gtrack(name = "circular walks"), ChipSeq_Tissue, ChipSeq_Nucleus), walks_l$footprint+2e5, cex.label=0.4, cex.axis=0.2)
-  plot(c(gencode, Lipo863B_REP1), walks_l$footprint+2e5, cex.label=0.4, cex.axis=0.2)
+  plot(c(gencode, walks_l$gt, LP6_REP1, LPS141, SW872_REP1, Tumor_1, Lipo863B_REP1), walks_l$footprint+2e5, cex.label=0.4, cex.axis=0.2)
   title(main=Name)
   par(cex.lab=0.1)
   dev.off()                                                                      
