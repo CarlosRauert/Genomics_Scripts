@@ -21,6 +21,7 @@ suppressPackageStartupMessages(require(stats4))
 suppressPackageStartupMessages(require(stringr))
 suppressPackageStartupMessages(require(here))
 
+here::set_here("/data/cephfs-1/home/users/rauertc_c/work/Scripts_Git_Repos/Genomics_Scripts/GatSV")
 
 source(here('scripts/annotation_scripts.R')) #here defaults to root directory where .git is located
 
@@ -41,6 +42,8 @@ reptimedata_hg38 = readRDS(here('data/reptime.hg38.rds'))
 scaling_mat <- fread(here("data/scalingmatrix.txt"))
 
 GaTSV <- readRDS(here("svm/GaTSV.rda")) #svmobject
+file.remove(here::here(".here"))
+here::set_here("/data/cephfs-1/home/users/rauertc_c/work/Scripts_Git_Repos/Genomics_Scripts/GatSV")
 
 
 #running the classifier on example data

@@ -33,23 +33,7 @@ hg38_exons=readRDS('/data/cephfs-1/home/users/rauertc_c/work/Scripts_Git_Repos/G
 reptimedata_hg19 = readRDS('/data/cephfs-1/home/users/rauertc_c/work/Scripts_Git_Repos/Genomics_Scripts/GatSV/data/reptime.hg19.rds')
 reptimedata_hg38 = readRDS('/data/cephfs-1/home/users/rauertc_c/work/Scripts_Git_Repos/Genomics_Scripts/GatSV/data/reptime.hg38.rds')
 scaling_mat <- fread("/data/cephfs-1/home/users/rauertc_c/work/Scripts_Git_Repos/Genomics_Scripts/GatSV/data/scalingmatrix.txt")
-
 GaTSV <- readRDS("/data/cephfs-1/home/users/rauertc_c/work/Scripts_Git_Repos/Genomics_Scripts/GatSV/svm/GaTSV.rda") #svmobject
-
-
-#running the classifier on example data
-metadata <- fread("/data/cephfs-1/home/users/rauertc_c/work/Scripts_Git_Repos/Genomics_Scripts/GatSV/data/example_metadata.txt") #metadata file that contains the sample_ids (same as 'sample' input) and associated tp53_mutation_status
-file_path <- "/data/cephfs-1/home/users/rauertc_c/work/Scripts_Git_Repos/Genomics_Scripts/GatSV/data/example.sv.vcf" #replace with desired vcf path
-sample <- "example"
-
-run_GaTSV(file_path,sample,n_cores=32,genome='hg19',output_path = '/data/cephfs-1/home/users/rauertc_c/work/GatSV/Out')
-process_file(file_path,sample,n_cores=16,genome="hg19",output_path='/data/cephfs-1/home/users/rauertc_c/work/GatSV/Out/Example')
-vcf_path_ex="/data/cephfs-1/home/users/rauertc_c/work/Scripts_Git_Repos/Genomics_Scripts/GatSV/data/example.sv.vcf"
-vcf_path="/data/cephfs-1/home/users/rauertc_c/liposarcoma-wgs/WGS/HMF_GRIDSS_vcfs/ACTN01020001T.purple.sv.vcf.gz"
-vcf_dt <- vcf_to_dt_Gridss("/data/cephfs-1/home/users/rauertc_c/liposarcoma-wgs/WGS/HMF_GRIDSS_vcfs/ACTN01020001T.purple.sv.vcf.gz", "Test")
-vcf_dt <- vcf_to_dt_Gridss("/data/cephfs-1/home/users/rauertc_c/liposarcoma-wgs/WGS/HMF_GRIDSS_vcfs/ACTN01020001T.purple.sv.vcf.gz", "Test")
-Example_dt <- vcf_to_dt(vcf_path_ex, "Example")
-sample_name="Testo"
 
 vcf_to_dt_Gridss <- function(vcf_path,sample_name) {
   cat(paste0(vcf_path, "\n"))
@@ -319,12 +303,6 @@ filter_gridss <- function(lof_pth, sample) {
   return(tmp)
   #}
 }
-andre3000 <- process_file_gridss("/data/cephfs-1/home/users/rauertc_c/liposarcoma-wgs/WGS/HMF_GRIDSS_vcfs/ACTN01020001T.purple.sv.vcf.gz","Testo",4,"hg19","/data/cephfs-1/home/users/rauertc_c/work/GatSV/Out/Testo/")
-file="/data/cephfs-1/home/users/rauertc_c/liposarcoma-wgs/WGS/HMF_GRIDSS_vcfs/ACTN01020001T.purple.sv.vcf.gz"
-sample="Testo"
-n_cores=32
-genome="hg19"
-output_path="/data/cephfs-1/home/users/rauertc_c/work/GatSV/Out/Testo/"
 
 process_file_gridss <- function(file,sample, n_cores,genome,output_path='./') {
   
@@ -376,16 +354,7 @@ process_file_gridss <- function(file,sample, n_cores,genome,output_path='./') {
   return(tp53_added)
 }
 
-andre3000 <- process_file_gridss("/data/cephfs-1/home/users/rauertc_c/liposarcoma-wgs/WGS/HMF_GRIDSS_vcfs/ACTN01020001T.purple.sv.vcf.gz","Testo",4,"hg19","/data/cephfs-1/home/users/rauertc_c/work/GatSV/Out/Testo/")
-
-
-file_path="/data/cephfs-1/home/users/rauertc_c/liposarcoma-wgs/WGS/HMF_GRIDSS_vcfs/ACTN01020001T.purple.sv.vcf.gz"
-sample="Testo"
-n_cores=32
-genome="hg19"
-output_path="/data/cephfs-1/home/users/rauertc_c/work/GatSV/Out/Testo/"
-
-run_GaTSV_gridss <- function(file_path,sample,n_cores=1,genome='hg19',output_path = './'){
+get_scaled_data <- function(file_path,sample,n_cores=1,genome='hg19',output_path = './'){
   cat(paste0('Reference genome: ',genome,'\n'))
   cat(paste0('Writing outputs to: ', output_path,'\n'))
   cat(paste0('Using ',n_cores,' core(s) for parallel processing \n'))
@@ -403,58 +372,21 @@ run_GaTSV_gridss <- function(file_path,sample,n_cores=1,genome='hg19',output_pat
   
   test <- cbind(test, test_sub_log)
   test_df <- as.data.frame(test[,.SD,.SDcols=features_toscale]) #select the features to scale
-  gtest_scaled <- data.table()
+  test_scaled <- data.table()
   for (i in colnames(test_df)){
     row_l <- scaling_mat[which(scaling_mat$feature== i),]
     feature_col <- test_df[grepl(i,colnames(test_df))]
     scaled_feature <- (feature_col -(row_l$mean))/row_l$sd
-    gtest_scaled <- cbind(gtest_scaled,scaled_feature)
+    test_scaled <- cbind(test_scaled,scaled_feature)
   }
-  cat("Performing classification...\n")
-  y_pred_radial <- predict(GaTSV, newdata = gtest_scaled, decision.values = T, probability = T)
-  probabilities_radial <-data.table(attr(y_pred_radial, 'probabilities'))
-  setcolorder(probabilities_radial, c('0', '1'))
-  
-  probabilities_radial[,"pred_class"] <- lapply(1:length(probabilities_radial$`1`),function(i){
-    return (ifelse(probabilities_radial$`1`[i]>= cutoff_prob,'SOMATIC','GERMLINE'))})
-  test <- cbind(test,as.character(probabilities_radial$pred_class))
-  colnames(test)[ncol(test)] <- 'predicted_class'
-  filename <- test$sample[1]
-  write.table(test, paste0(output_path,filename,'_classified.bedpe'), row.names = F, col.names = T, sep = "\t", quote = F)
-  cat('done.')
-  #return(test)
+  write_csv(test_scaled, paste0(output_path,sample,"_scaledData.csv"))
 }
 
-run_GaTSV_gridss(file,sample,n_cores, genome, output_path)
-
-
-
-
-#running the classifier on example data
-metadata <- fread("/data/cephfs-1/home/users/rauertc_c/work/Scripts_Git_Repos/Genomics_Scripts/GatSV/data/example_metadata.txt") #metadata file that contains the sample_ids (same as 'sample' input) and associated tp53_mutation_status
-file_path <- "/data/cephfs-1/home/users/rauertc_c/work/Scripts_Git_Repos/Genomics_Scripts/GatSV/data/example.sv.vcf" #replace with desired vcf path
-sample <- "example"
-
-run_GaTSV(file_path,sample,n_cores=16,genome='hg19',output_path = '/data/cephfs-1/home/users/rauertc_c/work/GatSV/Out')
-process_file(file_path,sample,n_cores=16,genome="hg19",output_path='/data/cephfs-1/home/users/rauertc_c/work/GatSV/Out/Example')
-vcf_path_ex="/data/cephfs-1/home/users/rauertc_c/work/Scripts_Git_Repos/Genomics_Scripts/GatSV/data/example.sv.vcf"
-vcf_path="/data/cephfs-1/home/users/rauertc_c/liposarcoma-wgs/WGS/HMF_GRIDSS_vcfs/ACTN01020001T.purple.sv.vcf.gz"
-vcf_dt <- vcf_to_dt_Gridss("/data/cephfs-1/home/users/rauertc_c/liposarcoma-wgs/WGS/HMF_GRIDSS_vcfs/ACTN01020001T.purple.sv.vcf.gz", "Test")
-vcf_dt <- vcf_to_dt_Gridss("/data/cephfs-1/home/users/rauertc_c/liposarcoma-wgs/WGS/HMF_GRIDSS_vcfs/ACTN01020001T.purple.sv.vcf.gz", "Test")
-Example_dt <- vcf_to_dt(vcf_path_ex, "Example")
-sample_name="Testo"
-
-file_path="/data/cephfs-1/home/users/rauertc_c/work/Scripts_Git_Repos/Genomics_Scripts/GatSV/data/example.sv.vcf"
-sample="Example"
-n_cores=32
-genome="hg19"
-output_path='/data/cephfs-1/home/users/rauertc_c/work/GatSV/Out/Example'
-
-run_GaTSV <- function(file_path,sample,n_cores=1,genome='hg19',output_path = './'){
+run_GaTSV_gridss <- function(file_path,sample,n_cores=1,genome='hg19',output_path = './'){
   cat(paste0('Reference genome: ',genome,'\n'))
   cat(paste0('Writing outputs to: ', output_path,'\n'))
   cat(paste0('Using ',n_cores,' core(s) for parallel processing \n'))
-  tmp <- process_file(file = file_path, sample=sample, n_cores =n_cores,genome=genome,output_path=output_path)
+  tmp <- process_file_gridss(file = file_path, sample=sample, n_cores =n_cores,genome=genome,output_path=output_path)
   cutoff_prob <-  0.2684 #optimal tpr+ppv cutoff
   
   test <- add_last_feat(tmp)
