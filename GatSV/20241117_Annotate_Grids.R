@@ -449,7 +449,7 @@ sample_list <- unique(sub("\\..*", "", file_list))
 # Create a data frame with 'sample' and 'tp53_mutation_status' columns
 result_df <- data.frame(
   sample = sample_list,
-  tp53_mutation_status = NA  # Fill with NA
+  tp53_mutation_status = 0  # Fill with NA
 )
 
 # Write the data frame to a text file in a tab-delimited format for fread compatibility

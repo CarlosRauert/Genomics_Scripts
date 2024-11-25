@@ -48,7 +48,7 @@ GaTSV <- readRDS("/data/cephfs-1/home/users/rauertc_c/work/Scripts_Git_Repos/Gen
 #running the classifier on example data
 metadata <- fread("/data/cephfs-1/home/users/rauertc_c/work/Scripts_Git_Repos/Genomics_Scripts/GatSV/data/example_metadata.txt") #metadata file that contains the sample_ids (same as 'sample' input) and associated tp53_mutation_status
 file_path <- "/data/cephfs-1/home/users/rauertc_c/work/Scripts_Git_Repos/Genomics_Scripts/GatSV/data/example.sv.vcf" #replace with desired vcf path
-sample <- "example"
+sample <- "example.sv"
 output_path="/data/cephfs-1/home/users/rauertc_c/work/GatSV/Out/Example"
 run_GaTSV(file_path,sample,n_cores=32,genome='hg19',output_path)
 

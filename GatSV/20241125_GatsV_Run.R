@@ -1044,4 +1044,4 @@ sample=args[2]
 output_path=args[3]
 
 metadata<-fread("/data/cephfs-1/home/users/rauertc_c/work/Scripts_Git_Repos/Genomics_Scripts/GatSV/samples_tp53_status.txt")
-get_scaled_data(file_path, sample, n_cores=32, genome="hg19", output_path)
+run_GaTSV_gridss(file_path, sample, n_cores=32, genome="hg19", output_path)
