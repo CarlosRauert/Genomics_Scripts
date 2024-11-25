@@ -991,7 +991,7 @@ get_scaled_data <- function(file_path,sample,n_cores=1,genome='hg19',output_path
     scaled_feature <- (feature_col -(row_l$mean))/row_l$sd
     test_scaled <- cbind(test_scaled,scaled_feature)
   }
-  write_csv(test_scaled, paste0(output_path,sample,"_scaledData.csv"))
+  write.csv(test_scaled, paste0(output_path,sample,"_scaledData.csv"))
 }
 
 run_GaTSV_gridss <- function(file_path,sample,n_cores=1,genome='hg19',output_path = './'){
@@ -1033,6 +1033,10 @@ run_GaTSV_gridss <- function(file_path,sample,n_cores=1,genome='hg19',output_pat
   cat('done.')
   #return(test)
 }
+
+#args <- c(paste0("/data/cephfs-1/home/users/rauertc_c/liposarcoma-wgs/WGS/HMF_GRIDSS_vcfs/",metadata$sample[1],".purple.sv.vcf.gz"),metadata$sample[1],"/data/cephfs-1/home/users/rauertc_c/work/GatSV/Out/GetScaled/")
+#OUTPUT_DIR="/data/cephfs-1/home/users/rauertc_c/work/GatSV/Out/GetScaled/"
+#SCRIPT="/data/cephfs-1/home/users/rauertc_c/work/Scripts_Git_Repos/Genomics_Scripts/GatSV/20241125_GatsV_Run.R"
 
 args <- commandArgs(trailingOnly=TRUE)
 file_path=args[1]

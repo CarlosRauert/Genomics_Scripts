@@ -4,7 +4,7 @@ Rscript /data/cephfs-1/home/users/rauertc_c/work/Scripts_Git_Repos/Genomics_Scri
 
 #set variables
 DIR="/data/cephfs-1/home/users/rauertc_c/liposarcoma-wgs/WGS/HMF_GRIDSS_vcfs"
-OUTPUT_DIR="/data/cephfs-1/home/users/rauertc_c/work/GatSV/Out/GetScaled"
+OUTPUT_DIR="/data/cephfs-1/home/users/rauertc_c/work/GatSV/Out/GetScaled/"
 SCRIPT="/data/cephfs-1/home/users/rauertc_c/work/Scripts_Git_Repos/Genomics_Scripts/GatSV/20241125_GatsV_Run.R"
 
 # Loop over Sample IDs
