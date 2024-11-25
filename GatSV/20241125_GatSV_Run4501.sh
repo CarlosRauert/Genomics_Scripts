@@ -1,3 +1,6 @@
+#!/bin/sh
+conda_init
+conda activate Gatsv
 #set variables
 DIR="/data/cephfs-1/home/users/rauertc_c/liposarcoma-wgs/WGS/HMF_GRIDSS_vcfs"
 OUTPUT_DIR="/data/cephfs-1/home/users/rauertc_c/work/GatSV/Out/GetScaled/"
@@ -12,8 +15,8 @@ SCRIPT="/data/cephfs-1/home/users/rauertc_c/work/Scripts_Git_Repos/Genomics_Scri
 #done
 
 # Loop over Sample IDs for a specified range (e.g., 1001:2000)
-start=4001
-end=4500
+start=4501
+end=5000
 
 # Extract the range of items based on the specified start and end
 count=0
