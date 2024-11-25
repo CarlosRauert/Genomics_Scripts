@@ -435,6 +435,34 @@ metadata <- fread("/data/cephfs-1/home/users/rauertc_c/work/Scripts_Git_Repos/Ge
 file_path <- "/data/cephfs-1/home/users/rauertc_c/work/Scripts_Git_Repos/Genomics_Scripts/GatSV/data/example.sv.vcf" #replace with desired vcf path
 sample <- "example"
 
+#make metadatafile
+# Define the directory and output file path
+input_dir <- "/data/cephfs-1/home/users/rauertc_c/liposarcoma-wgs/WGS/HMF_GRIDSS_vcfs"
+output_file <- "/data/cephfs-1/home/users/rauertc_c/work/Scripts_Git_Repos/Genomics_Scripts/GatSV/samples_tp53_status.txt"
+
+# List all files in the directory
+file_list <- list.files(input_dir)
+
+# Extract substrings until the first '.' and remove duplicates
+sample_list <- unique(sub("\\..*", "", file_list))
+
+# Create a data frame with 'sample' and 'tp53_mutation_status' columns
+result_df <- data.frame(
+  sample = sample_list,
+  tp53_mutation_status = NA  # Fill with NA
+)
+
+# Write the data frame to a text file in a tab-delimited format for fread compatibility
+write.table(
+  result_df, 
+  file = output_file, 
+  sep = "\t", 
+  row.names = FALSE, 
+  quote = FALSE
+)
+
+cat("File written to:", output_file, "\n")
+
 run_GaTSV(file_path,sample,n_cores=16,genome='hg19',output_path = '/data/cephfs-1/home/users/rauertc_c/work/GatSV/Out')
 process_file(file_path,sample,n_cores=16,genome="hg19",output_path='/data/cephfs-1/home/users/rauertc_c/work/GatSV/Out/Example')
 vcf_path_ex="/data/cephfs-1/home/users/rauertc_c/work/Scripts_Git_Repos/Genomics_Scripts/GatSV/data/example.sv.vcf"

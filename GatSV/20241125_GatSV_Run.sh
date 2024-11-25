@@ -10,7 +10,7 @@ SCRIPT="/data/cephfs-1/home/users/rauertc_c/work/Scripts_Git_Repos/Genomics_Scri
 # Loop over Sample IDs
 for item in $(ls "$DIR" | sed 's/\..*//' | sort -u); do
     # Set variable with .purple.sv.vcf.gz extension
-    variable="${item}.purple.sv.vcf.gz"
+    variable="${DIR}/${item}.purple.sv.vcf.gz"
     # Run the R script with the required arguments
     Rscript "$SCRIPT" "$variable" "$item" "$OUTPUT_DIR"
 done
