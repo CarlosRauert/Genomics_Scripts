@@ -169,7 +169,7 @@ get_metadata <- function(vcf_dt, sample_name){
     #vcf_dt[, EVDNC := gsub(".*?EVDNC=([A-Z]+).*", "\\1", INFO)]
     vcf_dt[, EVDNC := as.character(evdnc)]
     #vcf_dt[, MAPQ := as.integer(gsub(".*?;MAPQ=([0-9]+).*", "\\1", INFO))] # No direct equivalent only mean Quality score
-    vcf_dt[, MAPQ := as.integer(gsub(".*?;BMQ=([0-9]+).*", "\\1", INFO))]
+    vcf_dt[, MAPQ := as.integer(gsub(".*?;BMQ=([0-9]+).*", "\\1", INFO))]  # ##INFO=<ID=BMQ,Number=1,Type=Float,Description="Mean MAPQ of breakend supporting reads.">
     vcf_dt[, HOMSEQ := gsub(".*?;HOMSEQ=([A-Z]+).*", "\\1", INFO)]
     vcf_dt[, HOMSEQ := ifelse(grepl(";", HOMSEQ), "", HOMSEQ)] 
     #vcf_dt[, INSERTION := gsub(".*?;INSERTION=([A-Z]+).*", "\\1", INFO)] 
@@ -288,9 +288,9 @@ filter_gridss <- function(lof_pth, sample) {
   # as substitute for coverage: use number of split reads + number of spanning reads + number of soft clips
   #vcf_bedpe[, NALT_SR := unlist(strsplit(TUMOR, ":"))[3], by = 'TUMOR']
   cov_est <- lapply(1:nrow(vcf_bedpe), function(i){
-    SR=as.numeric(unlist(strsplit(vcf_bedpe$TUMOR[i], ":"))[27])
-    REF=as.numeric(unlist(strsplit(vcf_bedpe$TUMOR[i], ":"))[23])
-    BSC=as.numeric(unlist(strsplit(vcf_bedpe$TUMOR[i], ":"))[13])
+    SR=as.numeric(unlist(strsplit(vcf_bedpe$TUMOR[i], ":"))[27]) ##FORMAT=<ID=SR,Number=1,Type=Integer,Description="Count of split reads supporting breakpoint per category">
+    REF=as.numeric(unlist(strsplit(vcf_bedpe$TUMOR[i], ":"))[23]) ##FORMAT=<ID=REF,Number=1,Type=Integer,Description="Count of reads mapping across this breakend">
+    BSC=as.numeric(unlist(strsplit(vcf_bedpe$TUMOR[i], ":"))[13]) ##FORMAT=<ID=BSC,Number=1,Type=Integer,Description="Count of soft clips supporting just local breakend per category">
     cov_est=SR+REF+BSC
   })
   vcf_bedpe[, NALT_SR := as.numeric(cov_est)]
