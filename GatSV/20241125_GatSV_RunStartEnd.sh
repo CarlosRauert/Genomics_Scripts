@@ -1,5 +1,6 @@
 #!/bin/sh
-sh /data/cephfs-1/home/users/rauertc_c/work/miniforge3/etc/profile.d/conda.sh
+source /data/cephfs-1/home/users/rauertc_c/work/miniforge3/etc/profile.d/conda.sh
+conda init
 conda activate Gatsv
 #set variables
 DIR="/data/cephfs-1/home/users/rauertc_c/liposarcoma-wgs/WGS/HMF_GRIDSS_vcfs"
