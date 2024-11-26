@@ -908,7 +908,9 @@ filter_gridss <- function(lof_pth, sample) {
   vcf_bedpe[, NALT_SR := as.numeric(cov_est)]
   #vcf_bedpe[, NALT := unlist(strsplit(TUMOR, ":"))[1], by = 'TUMOR']
   
-  tmp <- vcf_bedpe[MAPQ_1 == 60 | MAPQ_2 == 60] #takes only reads that have a mapq score that are 60 or higher since MAPQ scores are capped at 60
+  #tmp <- vcf_bedpe[MAPQ_1 == 60 | MAPQ_2 == 60] #takes only reads that have a mapq score that are 60 or higher since MAPQ scores are capped at 60
+  vcf_bedpe$score <- as.numeric(vcf_bedpe$score)
+  tmp <- vcf_bedpe[score>1000]
   tmp <- tmp[!(EVDNC == 'DSCRD')] #removes reads that are discordant
   tmp <- tmp[NALT_SR > 1] #the number of reads covering the site/depth of coverage must be greater than 1
   tmp <- tmp[SPAN > 49 | SPAN== -1] #SPAN = -1 refers to a translocation. Span shorter than 50bp are considered simple indels
