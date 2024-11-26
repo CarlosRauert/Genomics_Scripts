@@ -27,7 +27,7 @@ for item in $(ls "$DIR" | sed 's/\..*//' | sort -u | sed -n "${start},${end}p");
 
     # Set variable with .purple.sv.vcf.gz extension
     variable="${DIR}/${item}.purple.sv.vcf.gz"
-    echo "Processing Count: $count, Sample ID: $item"
+    echo "Processing Count: $count, Sample ID: $item, file: $variable"
     # Run the R script with the required arguments
     Rscript "$SCRIPT" "$variable" "$item" "$OUTPUT_DIR" 2>&1 > /dev/null
 
