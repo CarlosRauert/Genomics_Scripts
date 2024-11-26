@@ -15,8 +15,8 @@ SCRIPT="/data/cephfs-1/home/users/rauertc_c/work/Scripts_Git_Repos/Genomics_Scri
 #done
 
 # Loop over Sample IDs for a specified range (e.g., 1001:2000)
-start=4501
-end=5000
+start=$1
+end=$2
 
 # Extract the range of items based on the specified start and end
 count=0
@@ -26,7 +26,7 @@ for item in $(ls "$DIR" | sed 's/\..*//' | sort -u | sed -n "${start},${end}p");
 
     # Set variable with .purple.sv.vcf.gz extension
     variable="${DIR}/${item}.purple.sv.vcf.gz"
-
+    echo "Processing Count: $count, Sample ID: $item
     # Run the R script with the required arguments
     Rscript "$SCRIPT" "$variable" "$item" "$OUTPUT_DIR"
 
