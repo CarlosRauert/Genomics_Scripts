@@ -724,31 +724,11 @@ get_metadata <- function(vcf_dt, sample_name){
     if(is.na(SR)|is.na(RP)|is.na(AS)){
       return(NA)
     }
-    if(AS>0){
-      if(RP>0){
-        return("ASDIS")
-      }
-      else{
-        if(SR>0){
-          return("TSI_L")
-        }
-        else{
-          return("ASSMB")
-        }
-      }  
+    if (RP>0 & SR==0 & AS==0){
+      return("DSCRD")
     }
     else{
-      if (RP>0){
-        return("DSCRD")
-      }
-      else{
-        if (SR>0){
-          return("TSI_G")
-        }
-        else{
-          return(NA)
-        }
-      }
+      return("OTHER")
     }
   })
   # get inserted sequence
