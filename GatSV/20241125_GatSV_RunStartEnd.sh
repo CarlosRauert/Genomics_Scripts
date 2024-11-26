@@ -29,6 +29,6 @@ for item in $(ls "$DIR" | sed 's/\..*//' | sort -u | sed -n "${start},${end}p");
     variable="${DIR}/${item}.purple.sv.vcf.gz"
     echo "Processing Count: $count, Sample ID: $item"
     # Run the R script with the required arguments
-    Rscript "$SCRIPT" "$variable" "$item" "$OUTPUT_DIR"
+    Rscript "$SCRIPT" "$variable" "$item" "$OUTPUT_DIR" 2>&1 > /dev/null
 
 done

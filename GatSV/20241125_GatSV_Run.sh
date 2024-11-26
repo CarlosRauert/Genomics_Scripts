@@ -27,6 +27,6 @@ for item in $(ls "$DIR" | sed 's/\..*//' | sort -u | sed -n "${start},${end}p");
     variable="${DIR}/${item}.purple.sv.vcf.gz"
 
     # Run the R script with the required arguments
-    Rscript "$SCRIPT" "$variable" "$item" "$OUTPUT_DIR"
+    Rscript "$SCRIPT" "$variable" "$item" "$OUTPUT_DIR" 
 
 done
