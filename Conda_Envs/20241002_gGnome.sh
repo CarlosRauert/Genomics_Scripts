@@ -10,5 +10,6 @@ devtools::install_github("mskilab/gGnome")
 #1: In i.p(...) :
 #  installation of package ‘/tmp/RtmpA3o5W9/file59a9e611ac12b/VariantAnnotation_1.51.1.tar.gz’ had non-zero exit status
 #2: packages ‘S4Vectors’, ‘BiocGenerics’, ‘GenomeInfoDb’, ‘IRanges’, ‘rtracklayer’, ‘GenomicRanges’ are not available for this version of R
-conda install bioconductor-s4vectors bioconductor-genomicranges bioconductor-iranges bioconductor-biocgenerics bioconductor-genomeinfodb bioconductor-rtracklayer
+conda install bioconductor-s4vectors bioconductor-genomicranges bioconductor-iranges bioconductor-biocgenerics bioconductor-genomeinfodb bioconductor-rtracklayer -c conda-forge
 tmux new-session -A -s Genomics2
+BiocManager::install(c("S4Vectors","GenomicRanges","IRanges","BiocGenerics","GenomeInfoDb","rtracklayer"),force=TRUE)

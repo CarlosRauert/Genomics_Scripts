@@ -1,4 +1,6 @@
-sbatch --ntasks=32 --mem=110G /data/cephfs-1/home/users/rauertc_c/work/Scripts_Git_Repos/Genomics_Scripts/GatSV/20241125_GatSV_RunStartEnd.sh 2001 5500
+sbatch --ntasks=32 --mem=30G /data/cephfs-1/home/users/rauertc_c/work/Scripts_Git_Repos/Genomics_Scripts/GatSV/20241125_GatSV_RunStartEnd.sh 5001 5500
+find /data/cephfs-1/work/groups/dubois/users/rauertc_c/GatSV/Out/GetScaled/ -type f -iname '*classified*' | wc -l
+
 
 #set variables
 DIR="/data/cephfs-1/home/users/rauertc_c/liposarcoma-wgs/WGS/HMF_GRIDSS_vcfs"
