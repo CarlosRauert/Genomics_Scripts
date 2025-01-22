@@ -1,0 +1,258 @@
+no change     /data/cephfs-1/home/users/rauertc_c/work/miniforge3/condabin/conda
+no change     /data/cephfs-1/home/users/rauertc_c/work/miniforge3/bin/conda
+no change     /data/cephfs-1/home/users/rauertc_c/work/miniforge3/bin/conda-env
+no change     /data/cephfs-1/home/users/rauertc_c/work/miniforge3/bin/activate
+no change     /data/cephfs-1/home/users/rauertc_c/work/miniforge3/bin/deactivate
+no change     /data/cephfs-1/home/users/rauertc_c/work/miniforge3/etc/profile.d/conda.sh
+no change     /data/cephfs-1/home/users/rauertc_c/work/miniforge3/etc/fish/conf.d/conda.fish
+no change     /data/cephfs-1/home/users/rauertc_c/work/miniforge3/shell/condabin/Conda.psm1
+no change     /data/cephfs-1/home/users/rauertc_c/work/miniforge3/shell/condabin/conda-hook.ps1
+no change     /data/cephfs-1/home/users/rauertc_c/work/miniforge3/lib/python3.12/site-packages/xontrib/conda.xsh
+no change     /data/cephfs-1/home/users/rauertc_c/work/miniforge3/etc/profile.d/conda.csh
+no change     /data/cephfs-1/home/users/rauertc_c/.bashrc
+No action taken.
+
+CondaError: Run 'conda init' before 'conda activate'
+
+Loading required package: data.table
+Loading required package: igraph
+
+Attaching package: ‘igraph’
+
+The following objects are masked from ‘package:stats’:
+
+    decompose, spectrum
+
+The following object is masked from ‘package:base’:
+
+    union
+
+Loading required package: Matrix
+Loading required package: gTrack
+Loading required package: GenomicRanges
+Loading required package: stats4
+Loading required package: BiocGenerics
+
+Attaching package: ‘BiocGenerics’
+
+The following objects are masked from ‘package:igraph’:
+
+    normalize, path, union
+
+The following objects are masked from ‘package:stats’:
+
+    IQR, mad, sd, var, xtabs
+
+The following objects are masked from ‘package:base’:
+
+    anyDuplicated, aperm, append, as.data.frame, basename, cbind,
+    colnames, dirname, do.call, duplicated, eval, evalq, Filter, Find,
+    get, grep, grepl, intersect, is.unsorted, lapply, Map, mapply,
+    match, mget, order, paste, pmax, pmax.int, pmin, pmin.int,
+    Position, rank, rbind, Reduce, rownames, sapply, setdiff, table,
+    tapply, union, unique, unsplit, which.max, which.min
+
+Loading required package: S4Vectors
+
+Attaching package: ‘S4Vectors’
+
+The following objects are masked from ‘package:Matrix’:
+
+    expand, unname
+
+The following objects are masked from ‘package:data.table’:
+
+    first, second
+
+The following object is masked from ‘package:utils’:
+
+    findMatches
+
+The following objects are masked from ‘package:base’:
+
+    expand.grid, I, unname
+
+Loading required package: IRanges
+
+Attaching package: ‘IRanges’
+
+The following object is masked from ‘package:data.table’:
+
+    shift
+
+Loading required package: GenomeInfoDb
+Loading required package: gUtils
+
+Attaching package: ‘gUtils’
+
+The following object is masked from ‘package:Matrix’:
+
+    %&%
+
+The following object is masked from ‘package:base’:
+
+    %o%
+
+
+Attaching package: ‘gTrack’
+
+The following object is masked from ‘package:GenomicRanges’:
+
+    seqinfo<-
+
+The following object is masked from ‘package:GenomeInfoDb’:
+
+    seqinfo<-
+
+Loading required package: reshape2
+
+Attaching package: ‘reshape2’
+
+The following objects are masked from ‘package:data.table’:
+
+    dcast, melt
+
+Warning messages:
+1: multiple methods tables found for ‘seqinfo<-’ 
+2: replacing previous import ‘GenomicRanges::shift’ by ‘data.table::shift’ when loading ‘gGnome’ 
+3: replacing previous import ‘GenomicRanges::score’ by ‘fishHook::score’ when loading ‘gGnome’ 
+4: replacing previous import ‘GenomicRanges::seqinfo<-’ by ‘gTrack::seqinfo<-’ when loading ‘gGnome’ 
+5: replacing previous import ‘Matrix::%&%’ by ‘gUtils::%&%’ when loading ‘gGnome’ 
+6: replacing previous import ‘GenomicRanges::union’ by ‘igraph::union’ when loading ‘gGnome’ 
+7: replacing previous import ‘data.table::melt’ by ‘reshape2::melt’ when loading ‘gGnome’ 
+8: multiple methods tables found for ‘%&%’ 
+[1] "Read A1KU and 15 into R"
+Reading file  /data/cephfs-1/home/users/rauertc_c/work/genomics/MDM2_Walks_Out/A1KU/A1KU_adj_Matrix_15.csv
+Creating NX Graph and Basis
+searching for cycles
+
+Elementary Cycles in the Graph:
+1466
+found Cycle
+writing file
+String Was Not Found
+Loading required package: data.table
+Loading required package: igraph
+
+Attaching package: ‘igraph’
+
+The following objects are masked from ‘package:stats’:
+
+    decompose, spectrum
+
+The following object is masked from ‘package:base’:
+
+    union
+
+Loading required package: Matrix
+Loading required package: gTrack
+Loading required package: GenomicRanges
+Loading required package: stats4
+Loading required package: BiocGenerics
+
+Attaching package: ‘BiocGenerics’
+
+The following objects are masked from ‘package:igraph’:
+
+    normalize, path, union
+
+The following objects are masked from ‘package:stats’:
+
+    IQR, mad, sd, var, xtabs
+
+The following objects are masked from ‘package:base’:
+
+    anyDuplicated, aperm, append, as.data.frame, basename, cbind,
+    colnames, dirname, do.call, duplicated, eval, evalq, Filter, Find,
+    get, grep, grepl, intersect, is.unsorted, lapply, Map, mapply,
+    match, mget, order, paste, pmax, pmax.int, pmin, pmin.int,
+    Position, rank, rbind, Reduce, rownames, sapply, setdiff, table,
+    tapply, union, unique, unsplit, which.max, which.min
+
+Loading required package: S4Vectors
+
+Attaching package: ‘S4Vectors’
+
+The following objects are masked from ‘package:Matrix’:
+
+    expand, unname
+
+The following objects are masked from ‘package:data.table’:
+
+    first, second
+
+The following object is masked from ‘package:utils’:
+
+    findMatches
+
+The following objects are masked from ‘package:base’:
+
+    expand.grid, I, unname
+
+Loading required package: IRanges
+
+Attaching package: ‘IRanges’
+
+The following object is masked from ‘package:data.table’:
+
+    shift
+
+Loading required package: GenomeInfoDb
+Loading required package: gUtils
+
+Attaching package: ‘gUtils’
+
+The following object is masked from ‘package:Matrix’:
+
+    %&%
+
+The following object is masked from ‘package:base’:
+
+    %o%
+
+
+Attaching package: ‘gTrack’
+
+The following object is masked from ‘package:GenomicRanges’:
+
+    seqinfo<-
+
+The following object is masked from ‘package:GenomeInfoDb’:
+
+    seqinfo<-
+
+Loading required package: reshape2
+
+Attaching package: ‘reshape2’
+
+The following objects are masked from ‘package:data.table’:
+
+    dcast, melt
+
+Warning messages:
+1: multiple methods tables found for ‘seqinfo<-’ 
+2: replacing previous import ‘GenomicRanges::shift’ by ‘data.table::shift’ when loading ‘gGnome’ 
+3: replacing previous import ‘GenomicRanges::score’ by ‘fishHook::score’ when loading ‘gGnome’ 
+4: replacing previous import ‘GenomicRanges::seqinfo<-’ by ‘gTrack::seqinfo<-’ when loading ‘gGnome’ 
+5: replacing previous import ‘Matrix::%&%’ by ‘gUtils::%&%’ when loading ‘gGnome’ 
+6: replacing previous import ‘GenomicRanges::union’ by ‘igraph::union’ when loading ‘gGnome’ 
+7: replacing previous import ‘data.table::melt’ by ‘reshape2::melt’ when loading ‘gGnome’ 
+8: multiple methods tables found for ‘%&%’ 
+[1] "Read A1KU and 15 into R"
+Warning message:
+In track.gencode(cached.dir = "/data/cephfs-1/work/groups/dubois/users/rauertc_c/genomics",  :
+  Pulling gencode annotations from /data/cephfs-1/work/groups/dubois/users/rauertc_c/genomics/gencode.composite.collapsed.rds
+Warning messages:
+1: In .merge_two_Seqinfo_objects(x, y) :
+  Each of the 2 combined objects has sequence levels not in the other:
+  - in 'x': M
+  - in 'y': GL000191.1, GL000192.1, GL000193.1, GL000194.1, GL000195.1, GL000196.1, GL000197.1, GL000198.1, GL000199.1, GL000200.1, GL000201.1, GL000202.1, GL000203.1, GL000204.1, GL000205.1, GL000206.1, GL000207.1, GL000208.1, GL000209.1, GL000210.1, GL000211.1, GL000212.1, GL000213.1, GL000214.1, GL000215.1, GL000216.1, GL000217.1, GL000218.1, GL000219.1, GL000220.1, GL000221.1, GL000222.1, GL000223.1, GL000224.1, GL000225.1, GL000226.1, GL000227.1, GL000228.1, GL000229.1, GL000230.1, GL000231.1, GL000232.1, GL000233.1, GL000234.1, GL000235.1, GL000236.1, GL000237.1, GL000238.1, GL000239.1, GL000240.1, GL000241.1, GL000242.1, GL000243.1, GL000244.1, GL000245.1, GL000246.1, GL000247.1, GL000248.1, GL000249.1, MT, hs37d5
+  Make sure to always combine/compare objects based on the same reference
+  genome (use suppressWarnings() to suppress this warning).
+2: In matrix(paste("c", rep(1:ncol(B), each = 2), c(".x", ".y"), sep = ""),  :
+  data length differs from size of matrix: [12 != 2 x 4]
+3: In matrix(paste("c", rep(1:ncol(B), each = 2), c(".x", ".y"), sep = ""),  :
+  data length differs from size of matrix: [12 != 2 x 4]
+null device 
+          1 
+done
