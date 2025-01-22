@@ -11,4 +11,11 @@ git add .
 DATE=$(date +"%Y-%m-%d")
 git commit -m "Changes of ${DATE}"
 git push https://${token}@github.com/CarlosRauert/Genomics_Scripts main
+git add NF_Jabba/nf-jabba/*
+cd NF_Jabba/nf-jabba
+git add .
+git commit -m "Changes of ${DATE}"
+cd ../..
 git add NF_Jabba/nf-jabba
+git commit -m "Update submodule NF_Jabba/nf-jabba"
+git push https://${token}@github.com/CarlosRauert/Genomics_Scripts main
