@@ -1,0 +1,3 @@
+id	filename	md5	size	state
+5a993135-be43-4c41-9aa4-3fb3d1abea29	5eb6e92a-ab71-4f47-92ca-5389694dea77_wgs_gdc_realn.bam	e3d139d47889081b12aeabc40d9a9586	122135628706	released
+a146a51d-b2f3-4ebc-9d75-0989b8c70b49	da4e6ae0-6463-49d2-8427-babaeeafcb09_wgs_gdc_realn.bam	ed3f28a51df7a742911d1f5120ed94d6	368262980113	released
