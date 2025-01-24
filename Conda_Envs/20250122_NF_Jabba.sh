@@ -23,3 +23,6 @@ nextflow run . -profile test
 # Get GDC data transfer tool
 conda install bioconda::gdc-client
 
+# get htslib (bgzip, tabix)
+conda install htslib
+

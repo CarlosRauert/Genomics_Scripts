@@ -204,22 +204,6 @@ params {
 	validationShowHiddenParams       = false
 	validate_params                  = false
 
-	// Undefined parameters
-	monochromeLogs = some_value
-	germline_resource = some_value
-	germline_resource_tbi = some_value
-	mappability = some_value
-	pon = some_value
-	pon_tbi = some_value
-	validationSkipDuplicateCheck = some_value
-	validationS3PathCheck = some_value
-	snpeff_db = some_value
-	vep_cache_version = some_value
-	vep_genome = some_value
-	vep_species = some_value
-	nonintegral_jabba = some_value
-	help_jabba = some_value
-
 }
 
 // Load base.config by default for all pipelines

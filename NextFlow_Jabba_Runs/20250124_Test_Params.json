@@ -1,0 +1,16 @@
+{
+    "params.monochromeLogs": "some_value",
+    "params.germline_resource": "path/to/germline_resource",
+    "params.germline_resource_tbi": "path/to/germline_resource_tbi",
+    "params.mappability": "path/to/mappability",
+    "params.pon": "path/to/pon",
+    "params.pon_tbi": "path/to/pon_tbi",
+    "params.validationSkipDuplicateCheck": false,
+    "params.validationS3PathCheck": false,
+    "params.snpeff_db": "path/to/snpeff_db",
+    "params.vep_cache_version": "version_number",
+    "params.vep_genome": "genome_version",
+    "params.vep_species": "species_name",
+    "params.nonintegral_jabba": false,
+    "params.help_jabba": false
+}
