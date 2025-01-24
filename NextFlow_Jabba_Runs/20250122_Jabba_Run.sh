@@ -22,6 +22,19 @@ nextflow run ~/work/Scripts_Git_Repos/Genomics_Scripts/NF_Jabba \
         --genome GRCh38 \
         --step sv_calling
 
+nextflow run ~/work/Scripts_Git_Repos/Genomics_Scripts/NF_Jabba \
+        -profile bih \
+        --input './20250123_Test_samplesheet.csv' \
+        --outdir './out' \
+        --tools gridss,fragcounter,dryclean,cbs,hetpileups,ascat,jabba \
+        --genome GRCh38 \
+        --step markduplicates
+
+
+
+
+
+
 # Skips most steps after GATK4. Warnings: 
 
 WARN: Access to undefined parameter `monochromeLogs` -- Initialise it to a default value eg. `params.monochromeLogs = some_value`
@@ -43,8 +56,4 @@ WARN: There's no process matching config selector: GATK4_MERGEVCFS
 WARN: There's no process matching config selector: GRIDSS
 WARN: There's no process matching config selector: SAMPLESHEET_CHECK
 
-# Add parameter definitions in nextflow config file
-
-# Make params file and define parameters.
-
--params-file /data/cephfs-1/home/users/rauertc_c/work/Scripts_Git_Repos/Genomics_Scripts/NextFlow_Jabba_Runs/20250125_Test_Params.yaml
+# Are commented out by authors
