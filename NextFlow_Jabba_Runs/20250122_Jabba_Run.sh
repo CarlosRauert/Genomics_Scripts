@@ -43,7 +43,6 @@ WARN: There's no process matching config selector: GATK4_MERGEVCFS
 WARN: There's no process matching config selector: GRIDSS
 WARN: There's no process matching config selector: SAMPLESHEET_CHECK
 
-
 # Add parameter definitions in nextflow config file
 
 # Make params file and define parameters.
