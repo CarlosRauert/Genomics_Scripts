@@ -18,7 +18,7 @@ nextflow run ~/work/Scripts_Git_Repos/Genomics_Scripts/NF_Jabba \
         -profile bih \
         --input './20250123_Test_samplesheet.csv' \
         --outdir './out' \
-        --tools svaba,fragcounter,dryclean,cbs,hetpileups,ascat,jabba \
+        --tools gridss,fragcounter,dryclean,cbs,hetpileups,ascat,jabba \
         --genome GRCh38 \
         --step sv_calling
 
