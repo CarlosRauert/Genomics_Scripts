@@ -3,9 +3,12 @@ process HETPILEUPS {
     tag "$meta.id"
     label 'process_medium'
 
-    container "${ workflow.containerEngine == 'singularity' && !task.ext.singularity_pull_docker_container ?
-        'docker://mskilab/hetpileups:latest':
-        'mskilab/hetpileups:latest' }"
+    // CHANGE: Explicitly stated the docker container
+    //container "${ workflow.containerEngine == 'singularity' && !task.ext.singularity_pull_docker_container ?
+    //    'docker://mskilab/hetpileups:latest':
+    //    'mskilab/hetpileups:latest' }"
+
+    container 'docker://mskilab/hetpileups:latest'
 
     input:
     tuple val(meta), path(tumor_bam_wgs, stageAs: "tumor.bam"), path(tumor_bai, stageAs: "tumor.bam.bai"), path(normal_bam_wgs, stageAs: "normal.bam"), path(normal_bai, stageAs: "normal.bam.bai")
