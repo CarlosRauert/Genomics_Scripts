@@ -48,16 +48,10 @@ nextflow run ~/work/Scripts_Git_Repos/Genomics_Scripts/NF_Jabba \
         --step sv_calling \
         --tools svaba,fragcounter,dryclean,cbs,hetpileups,ascat,jabba
 
-
 # add if overwrite is enabled
-
-
         -with-report reportgatk38.html \
         -with-trace tracegatk38.txt \
         -with-timeline timelinegatk38.html
-
-
-
 
 # Skips most steps after GATK4. Warnings: 
 
@@ -79,5 +73,7 @@ WARN: There's no process matching config selector: STRELKA.*|MANTA.*
 WARN: There's no process matching config selector: GATK4_MERGEVCFS
 WARN: There's no process matching config selector: GRIDSS
 WARN: There's no process matching config selector: SAMPLESHEET_CHECK
-
 # Are commented out by authors
+
+# Examine BAM Header:
+samtools view -H 5a993135-be43-4c41-9aa4-3fb3d1abea29/5eb6e92a-ab71-4f47-92ca-5389694dea77_wgs_gdc_realn.bam

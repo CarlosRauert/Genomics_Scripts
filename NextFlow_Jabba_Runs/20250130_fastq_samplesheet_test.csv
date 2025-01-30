@@ -1,0 +1,3 @@
+sample_id,mapped,index,file_type
+Tumor,/data/cephfs-1/home/users/rauertc_c/scratch/NF_Jabba/Bams/AB36/a146a51d-b2f3-4ebc-9d75-0989b8c70b49/da4e6ae0-6463-49d2-8427-babaeeafcb09_wgs_gdc_realn.bam,/data/cephfs-1/home/users/rauertc_c/scratch/NF_Jabba/Bams/AB36/a146a51d-b2f3-4ebc-9d75-0989b8c70b49/da4e6ae0-6463-49d2-8427-babaeeafcb09_wgs_gdc_realn.bai,bam
+Normal,/data/cephfs-1/home/users/rauertc_c/scratch/NF_Jabba/Bams/AB36/5a993135-be43-4c41-9aa4-3fb3d1abea29/5eb6e92a-ab71-4f47-92ca-5389694dea77_wgs_gdc_realn.bam,/data/cephfs-1/home/users/rauertc_c/scratch/NF_Jabba/Bams/AB36/5a993135-be43-4c41-9aa4-3fb3d1abea29/5eb6e92a-ab71-4f47-92ca-5389694dea77_wgs_gdc_realn.bai,bam
