@@ -15,12 +15,22 @@ find "$(pwd)" -type f # for getting filepaths
 cp ~/work/Scripts_Git_Repos/Genomics_Scripts/NextFlow_Jabba_Runs/20250123_Test_samplesheet.csv .
 
 nextflow run ~/work/Scripts_Git_Repos/Genomics_Scripts/NF_Jabba \
+        -profile test,singularity \
+        --tools gridss \
+
+export NXF_VERBOSITY=3
+
+
+nextflow run ~/work/Scripts_Git_Repos/Genomics_Scripts/NF_Jabba \
         -profile bih \
         --input './20250123_Test_samplesheet.csv' \
         --outdir './out' \
-        --tools gridss,fragcounter,dryclean,cbs,hetpileups,ascat,jabba \
         --genome GRCh38 \
-        --step sv_calling
+        --step sv_calling \
+        --tools svaba,fragcounter,dryclean,cbs,hetpileups,ascat,jabba \
+        -with-report report.html \
+        -with-trace trace.txt \
+        -with-timeline timeline.html
 
 nextflow run ~/work/Scripts_Git_Repos/Genomics_Scripts/NF_Jabba \
         -profile bih \
@@ -30,7 +40,21 @@ nextflow run ~/work/Scripts_Git_Repos/Genomics_Scripts/NF_Jabba \
         --genome GRCh38 \
         --step markduplicates
 
+nextflow run ~/work/Scripts_Git_Repos/Genomics_Scripts/NF_Jabba \
+        -profile bih \
+        --input './20250123_Test_samplesheet.csv' \
+        --outdir './out' \
+        --genome GATK.GRCh38 \
+        --step sv_calling \
+        --tools svaba,fragcounter,dryclean,cbs,hetpileups,ascat,jabba
 
+
+# add if overwrite is enabled
+
+
+        -with-report reportgatk38.html \
+        -with-trace tracegatk38.txt \
+        -with-timeline timelinegatk38.html
 
 
 

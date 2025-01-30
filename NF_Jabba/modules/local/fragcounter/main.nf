@@ -4,9 +4,12 @@ process FRAGCOUNTER {
     label 'process_medium'
 
     // TODO add fragcounter container
-    container "${ workflow.containerEngine == 'singularity' && !task.ext.singularity_pull_docker_container ?
-        'docker://mskilab/fragcounter:0.1':
-        'mskilab/fragcounter:0.1' }"
+    // CHANGE: explicitly stated container address, as quay.io containers are not available anymore.
+    //container "${ workflow.containerEngine == 'singularity' && !task.ext.singularity_pull_docker_container ?
+    //    'docker://mskilab/fragcounter:0.1':
+    //    'mskilab/fragcounter:0.1' }"
+    
+    container 'docker://mskilab/fragcounter:0.1'
 
     input:
     tuple val(meta), path(bam), path(bai)                    // Mandatory: Format should be [meta, bam, bai] : can also provide cram & crai
@@ -81,9 +84,12 @@ process REBIN_RAW_FRAGCOUNTER {
     label 'process_low'
 
     // TODO add fragcounter container
-    container "${ workflow.containerEngine == 'singularity' && !task.ext.singularity_pull_docker_container ?
-        'docker://mskilab/fragcounter:0.1':
-        'mskilab/fragcounter:0.1' }"
+    // CHANGE: explicitly stated container address, as quay.io containers are not available anymore.
+    //container "${ workflow.containerEngine == 'singularity' && !task.ext.singularity_pull_docker_container ?
+    //    'docker://mskilab/fragcounter:0.1':
+    //    'mskilab/fragcounter:0.1' }"
+
+    container 'docker://mskilab/fragcounter:0.1'
 
     input:
     tuple val(meta), path(cov_raw)
