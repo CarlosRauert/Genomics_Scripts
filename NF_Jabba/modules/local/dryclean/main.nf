@@ -1,11 +1,12 @@
+// Make container explicit
 process DRYCLEAN {
     tag "$meta.id"
     label 'process_medium'
 
-    container "${ workflow.containerEngine == 'singularity' && !task.ext.singularity_pull_docker_container ?
-        'docker://mskilab/dryclean:0.0.3':
-        'mskilab/dryclean:0.0.3' }"
-
+    //container "${ workflow.containerEngine == 'singularity' && !task.ext.singularity_pull_docker_container ?
+    //    'docker://mskilab/dryclean:0.0.3':
+    //    'mskilab/dryclean:0.0.3' }"
+    container 'docker://mskilab/dryclean:0.0.3'
 
     input:
     tuple val(meta), path(input)
