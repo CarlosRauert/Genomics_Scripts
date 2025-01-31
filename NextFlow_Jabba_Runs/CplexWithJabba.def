@@ -1,0 +1,11 @@
+Bootstrap: docker
+From: mskilab/jabba:latest
+
+%post
+    # Install CPLEX
+    cp /data/cephfs-1/home/users/rauertc_c/liposarcoma-wgs/Cplex/cos_installer_preview-22.1.2.R4-M0N96ML-linux-x86-64.bin /opt/cplex_studio/
+    chmod 777 /opt/cplex_studio/cos_installer_preview-22.1.2.R4-M0N96ML-linux-x86-64.bin
+    /opt/cplex_studio/cos_installer_preview-22.1.2.R4-M0N96ML-linux-x86-64.bin --prefix=/opt/cplex
+
+    # Set environment variables
+    echo 'export CPLEX_DIR=/opt/cplex' >> /environment

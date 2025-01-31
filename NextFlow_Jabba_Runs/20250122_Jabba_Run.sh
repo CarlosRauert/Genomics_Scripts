@@ -24,18 +24,18 @@ export NXF_VERBOSITY=3
 nextflow run ~/work/Scripts_Git_Repos/Genomics_Scripts/NF_Jabba \
         -profile bih \
         --input './20250123_Test_samplesheet.csv' \
-        --outdir './out' \
+        --outdir './old/out' \
         --genome GRCh38 \
         --step sv_calling \
         --tools svaba,fragcounter,dryclean,cbs,hetpileups,ascat,jabba \
-        -with-report report.html \
-        -with-trace trace.txt \
-        -with-timeline timeline.html
+        -with-report ./old/report.html \
+        -with-trace ./old/trace.txt \
+        -with-timeline ./old/timeline.html
 
 nextflow run ~/work/Scripts_Git_Repos/Genomics_Scripts/NF_Jabba \
         -profile bih \
         --input './20250123_Test_samplesheet.csv' \
-        --outdir './out' \
+        --outdir './test/out' \
         --tools gridss,fragcounter,dryclean,cbs,hetpileups,ascat,jabba \
         --genome GRCh38 \
         --step markduplicates
@@ -77,3 +77,9 @@ WARN: There's no process matching config selector: SAMPLESHEET_CHECK
 
 # Examine BAM Header:
 samtools view -H 5a993135-be43-4c41-9aa4-3fb3d1abea29/5eb6e92a-ab71-4f47-92ca-5389694dea77_wgs_gdc_realn.bam
+
+
+# Install Cplex in apptainer image
+
+apptainer pull docker://mskilab/jabba:latest
+apptainer shell --writable jabba_latest.sif
