@@ -94,3 +94,5 @@ chmod 777 /data/cephfs-1/home/users/rauertc_c/liposarcoma-wgs/Cplex/cos_installe
 
 cp /data/cephfs-1/home/users/rauertc_c/liposarcoma-wgs/Cplex/cos_installer_preview-22.1.2.R4-M0N96ML-linux-x86-64.bin ~/work
 cd /data/cephfs-1/home/users/rauertc_c/liposarcoma-wgs/Cplex
+
+cat /data/cephfs-1/home/users/rauertc_c/work/Scripts_Git_Repos/Genomics_Scripts/NextFlow_Jabba_Runs/CplexWithJabba.def
