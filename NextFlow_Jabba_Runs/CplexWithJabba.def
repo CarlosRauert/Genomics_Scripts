@@ -4,6 +4,9 @@ From: mskilab/jabba:latest
 %post
     # Debugging
     echo "Current working directory: $(pwd)"
+    echo "Environment variables:"
+    env
+    sleep 5
     ls -l /data/cephfs-1/home/users/rauertc_c/liposarcoma-wgs/Cplex/
     ls -l /opt/cplex_studio/
 
