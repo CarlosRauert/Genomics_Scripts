@@ -2,6 +2,7 @@ Bootstrap: docker
 From: mskilab/jabba:latest
 
 %post
+    export LD_LIBRARY_PATH=/data/cephfs-1/home/users/rauertc_c/work/2.29/build:$LD_LIBRARY_PATH
     # Debugging
     echo "Current working directory: $(pwd)"
     echo "Environment variables:"
