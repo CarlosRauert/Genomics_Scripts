@@ -46,7 +46,8 @@ nextflow run ~/work/Scripts_Git_Repos/Genomics_Scripts/NF_Jabba \
         --outdir './out' \
         --genome GATK.GRCh38 \
         --step sv_calling \
-        --tools svaba,fragcounter,dryclean,cbs,hetpileups,ascat,jabba
+        --tools svaba,fragcounter,dryclean,cbs,hetpileups,ascat,jabba \
+        --override-reference-check
 
 # add if overwrite is enabled
         -with-report reportgatk38.html \

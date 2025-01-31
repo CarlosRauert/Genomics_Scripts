@@ -1,4 +1,4 @@
-
+//change to file: added --override-reference-check
 process SVABA {
     tag "$meta.id"
     label 'process_high'
@@ -55,7 +55,7 @@ process SVABA {
 
     """
     ${bwa}
-
+    
     svaba \\
         run \\
         $bamlist \\
@@ -67,6 +67,7 @@ process SVABA {
         --id-string $meta.id \\
         --reference-genome $fasta \\
         --g-zip \\
+        --override-reference-check \\
         $args \\
 
     cat <<-END_VERSIONS > versions.yml
