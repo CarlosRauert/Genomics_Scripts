@@ -82,4 +82,15 @@ samtools view -H 5a993135-be43-4c41-9aa4-3fb3d1abea29/5eb6e92a-ab71-4f47-92ca-53
 # Install Cplex in apptainer image
 
 apptainer pull docker://mskilab/jabba:latest
-apptainer shell --writable jabba_latest.sif
+apptainer shell --writable jabba_latest.sif # doesnt work due to container being non writable after pulling
+
+# Create JabbaWithCplex from definition file
+
+apptainer build /data/jabba_with_cplex.sif jabba.def
+apptainer build --ignore-fakeroot-command jabba_with_cplex.sif /data/cephfs-1/home/users/rauertc_c/work/Scripts_Git_Repos/Genomics_Scripts/NextFlow_Jabba_Runs/CplexWithJabba.def
+apptainer build --bind /path/to/lib64:/lib your_image.sif your_definition.def
+
+chmod 777 /data/cephfs-1/home/users/rauertc_c/liposarcoma-wgs/Cplex/cos_installer_preview-22.1.2.R4-M0N96ML-linux-x86-64.bin
+
+cp /data/cephfs-1/home/users/rauertc_c/liposarcoma-wgs/Cplex/cos_installer_preview-22.1.2.R4-M0N96ML-linux-x86-64.bin ~/work
+cd /data/cephfs-1/home/users/rauertc_c/liposarcoma-wgs/Cplex
